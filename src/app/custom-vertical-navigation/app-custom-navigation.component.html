@@ -1,0 +1,45 @@
+<!-- <div *ngFor="let item of customNavigation">
+    <div class="custom-navigation" (click)="navigateToUrl(item?.link)">
+        <mat-icon>{{item?.icon}}</mat-icon>
+        <a>{{item?.title}}</a>
+    </div>
+
+
+</div> -->
+<!-- <mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Self aware panel
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+</mat-expansion-panel> -->
+
+<div *ngFor="let item of customNavigation">
+    <ng-container *ngIf="item.collapsable; else simplenav">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-icon>{{item?.icon}}</mat-icon>
+                    <a>{{item?.title}}</a>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngFor="let childs of item?.children">
+                <div matRipple class="custom-navigation" (click)="navigateToUrl(childs?.link)">
+                    <mat-icon>{{childs?.icon}}</mat-icon>
+                    <a routerLinkActive="active">{{childs?.title}}</a>
+                </div>
+            </div>
+        </mat-expansion-panel>
+    </ng-container>
+
+    <ng-template #simplenav>
+        <div matRipple class="custom-navigation" (click)="navigateToUrl(item?.link)">
+            <mat-icon>{{item?.icon}}</mat-icon>
+            <a routerLinkActive="active">{{item?.title}}</a>
+        </div>
+    </ng-template>
+
+
+
+</div>

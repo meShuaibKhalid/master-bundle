@@ -1,0 +1,34 @@
+<div class="m-3 p-3">
+    <angular-editor [(ngModel)]="editorText" #editor [config]="editorConfig"></angular-editor>
+
+<button mat-raised-button (click)="convertToPdf(nameAndSave)" class="text-red-600 bg-white p-2 mt-3 mr-3">Save as PDF
+    <mat-icon>picture_as_pdf</mat-icon></button>
+<button mat-raised-button (click)="saveAsText()" *ngIf="!isUpdate" class="text-red-600 bg-white p-2 ">Save as Text</button>
+<button mat-raised-button (click)="updateText()" *ngIf="isUpdate" class="text-green-600 bg-white p-2 ">Save Text</button>
+<!-- confirmation dialog to name file and save -->
+<ng-template #nameAndSave>
+    <div class="lex flex-col justify-center items-center">
+        <div>
+            <mat-form-field appearance="outline">
+                <input matInput placeholder="Name" [(ngModel)]="name" name="fileName" required>
+            </mat-form-field>
+        </div>
+        <div class="flex justify-evenly items-center mt-2">
+            <button mat-raised-button (click)="onSave()" class=" text-green-500 bg-white">Save</button>
+            <button mat-raised-button (click)="close()" class="flex  text-red-500">Cancel</button>
+        </div>
+
+    </div>
+</ng-template>
+
+
+<div class="flex items-center">
+    <div *ngFor="let note of notes; let i=index" (click)="editText(note)"
+        class="bg-white text-black p-3 m-3 h-36 w-36 border rounded-md position-relative cursor-pointer">
+        <button mat-icon-button (click)="deleteNote(i)" class="position-absolute top-0 right-0 hover:text-blue-700">
+            <mat-icon>delete</mat-icon>
+        </button>
+        <div>{{note.note}}</div>
+    </div>
+</div>
+</div>

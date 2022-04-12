@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row my-5">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-md-offset-2 col-sm-offset-1">
+            <form [formGroup]="testForm">
+                <h2>Add any Expression</h2>
+
+                <div formArrayName="expressions" class="my-3">
+                    <div class="form-group"
+                        *ngFor="let expressionsControl of testForm.get('expressions')['controls']; let i=index">
+                        <span class="m-2 h2" *ngIf="result1.length">{{result1[i]}}</span>
+                        <input type="text" class="form-control" [formControlName]="i" (change)="getValue(i)">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary my-3" type="button" (click)="onSubmit()">Eval Result</button>
+            </form>
+        </div>
+        <div class="col-md-4 d-flex flex-wrap">
+            <!-- <button class="btn btn-success mr-2" (click)="onAND()">AND</button>
+            <button class="btn btn-success mr-2" (click)="onAddition()">ADD</button>
+            <button class="btn btn-success mr-2" (click)="onOR()">OR</button> -->
+
+            <div *ngFor="let operator of operators">
+                <button class="btn btn-success mr-2" (click)="onOperator(operator.value)">{{operator.label}}</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="row my-5" *ngIf="expression">
+        <span class="h4">The Result of Given Expression</span> &nbsp; <span class="h4 text-info">" {{expression}} " is</span> &nbsp;  <span class="h4 text-success">" {{result}} "</span>
+    </div>
+</div>

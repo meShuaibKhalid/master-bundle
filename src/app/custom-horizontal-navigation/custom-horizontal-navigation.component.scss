@@ -1,0 +1,24 @@
+.custom-horizontal-navigation {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 5px;
+  a {
+    font-size: 14px;
+    padding-left: 10px;
+  }
+}
+
+.custom-horizontal-navigation-items{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 5px;
+  a {
+    font-size: 14px;
+    color: #fff;
+    padding-left: 10px;
+  }
+}

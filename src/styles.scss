@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom-horizontal-nav{
+     display: flex;
+        flex-grow: 0.1;
+        justify-content: space-between;
+}
+// @media only screen and (max-width: 960px) {
+//     .custom-horizontal-nav{
+//         display: flex;
+//         flex-grow: 0.1;
+//         justify-content: space-between;
+//     }
+//   }
+
+  @media only screen and (max-width: 400px) {
+    .custom-horizontal-nav{
+        display: none;
+    }
+  }

@@ -1,0 +1,32 @@
+.user-menu {
+  padding: 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  h3 {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .menu {
+    mat-icon {
+      font-size: 28px;
+      &:hover {
+        cursor: pointer;
+        color: yellow;
+      }
+    }
+  }
+}
+
+.menu-items {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  span {
+    padding-left: 10px;
+    &:hover {
+      color: yellow;
+    }
+  }
+}

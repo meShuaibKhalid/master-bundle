@@ -1,0 +1,18 @@
+<div class="user-menu">
+    <h3>Master Bundle</h3>
+    <div class="menu">
+        <mat-icon [matMenuTriggerFor]="menu">account_circle</mat-icon>
+    </div>
+</div>
+
+
+<mat-menu #menu="matMenu">
+    <div class="menu-items">
+        <mat-icon>person_outline</mat-icon>
+        <span>Profile</span>
+    </div>
+    <div class="menu-items">
+        <mat-icon>logout</mat-icon>
+        <span [routerLink]="['/login']" routerLinkActive="router-link-active" >Log Out</span>
+    </div>
+</mat-menu>

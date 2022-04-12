@@ -1,0 +1,17 @@
+.full-width-table {
+  width: 100%;
+}
+.close-button{
+  float: right;
+  cursor: pointer;
+  &:hover {
+    color: yellow;
+  }
+}
+.view-data{
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover{
+    color: yellow;
+  }
+}

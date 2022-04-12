@@ -1,0 +1,58 @@
+<!-- <div *ngFor="let item of customNavigation">
+    <div class="custom-navigation" (click)="navigateToUrl(item?.link)">
+        <mat-icon>{{item?.icon}}</mat-icon>
+        <a>{{item?.title}}</a>
+    </div>
+
+
+</div> -->
+<!-- <mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Self aware panel
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+</mat-expansion-panel> -->
+
+<!-- <div *ngFor="let item of customNavigation">
+    <ng-container *ngIf="item.collapsable; else simplenav">
+        
+    </ng-container>
+
+    <ng-template #simplenav>
+        <div matRipple (click)="navigateToUrl(item?.link)">
+            <mat-icon>{{item?.icon}}</mat-icon>
+            <a routerLinkActive="active">{{item?.title}}</a>
+        </div>
+    </ng-template>
+
+
+
+</div> -->
+
+<div *ngFor="let item of customNavigation">
+    <ng-container *ngIf="!item.collapsable; else dropdownNav">
+        <div matRipple (click)="navigateToUrl(item?.link)" class="custom-horizontal-navigation">
+            <a routerLinkActive="active">{{item?.title}}</a>
+        </div>
+    </ng-container>
+
+
+    <ng-template #dropdownNav>
+        <div matRipple class="custom-horizontal-navigation" [matMenuTriggerFor]="menu">
+            <a>{{item?.title}}</a>
+            <mat-icon style="color: #fff;">expand_more</mat-icon>
+        </div>
+    </ng-template>
+
+
+    <mat-menu #menu="matMenu">
+        <div *ngFor="let childs of item?.children">
+            <div matRipple (click)="navigateToUrl(childs?.link)" class="custom-horizontal-navigation-items">
+                <a routerLinkActive="active">{{childs?.title}}</a>
+            </div>
+        </div>
+    </mat-menu>
+
+</div>
